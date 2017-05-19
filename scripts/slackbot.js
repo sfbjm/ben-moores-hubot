@@ -47,21 +47,34 @@
 // }
 
 
-//Version 2: Passing variables as URL paramaters
+// // //Version 2: Passing variables as URL paramaters
+
+// module.exports = function(robot) {
+  
+//   robot.respond(/Show me news (about|for) (.*)/, function(msg) {
+//     var news;
+//     news = msg.match[1];
+//     console.log(news);
+//       return msg.reply("https://news-ui-prod.sandbox.google.com/search/section/q/"+news+"/"+news+"?hl=en&ned=us");
+
+//   // robot.respond(/Show me a stock quote for (.*)/, function(msg) {
+//   //   var quote;
+//   //   news = msg.match[1];
+//   //   console.log(quote);
+//   //     if (
+//   //     }
+//   });
+// }
+
 
 module.exports = function(robot) {
-  robot.respond(/Show me news about (.*)/, function(msg) {
-    var news;
-    news = msg.match[1];
-    console.log(news);
-    if (news === "") {
-      return msg.reply("Hmm.. I don't know how to find news for " + news + ".");
-    } else {
-      return msg.reply("https://news-ui-prod.sandbox.google.com/search/section/q/"+news+"/"+news+"?hl=en&ned=us");
-    }
+    
+    robot.hear(/well done||congrats||great job||awesome||nailed it||great stuff/i, function(msg){
+      var gifs = ['http://pa1.narvii.com/6261/5a310e7c832762a318e7b03794ce540a41cc6ae2_hq.gif', 'http://www.reactiongifs.com/r/drj1NmK.gif', 'http://i58.photobucket.com/albums/g246/sey115/Photobucket%20Desktop%20-%20Sage%20Youngs%20MacBook/Funny%20and%20Random/andyreaction_zpsecc4e2b7.gif', 'http://www.reactiongifs.com/r/2013/06/Colbert-High-Five.gif', 'http://www.reactiongifs.com/r/jcwd.gif'];
+      var gifs = gifs[Math.floor(Math.random()*gifs.length)];
+        msg.send(gifs);
   });
 }
-
   
 
 
