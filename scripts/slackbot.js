@@ -18,13 +18,34 @@
 // <github username of the original script author>
 //
 
+// module.exports = function(robot) {
+//     robot.hear(/javascript/i, function(msg) {
+//      return msg.send("I love JavaScript!");
+//     });
+//     robot.hear(/Where are you?/, function(res) {
+//       return res.send("Right here, what's up?");
+//     });
+//     robot.respond(/What is your favorite food?/, function(res) {
+//       return res.send("I am a robot. I don't eat food!");
+//     });
+// }
+
+
 module.exports = function(robot) {
-   robot.hear(/javascript/i, function(msg) {
-     return msg.send("I love JavaScript");
-   });
+    robot.respond(/Show me the news/, function(res) {
+      return res.send("https://news.google.com/search/section/q/trump/trump?hl=en&ned=us");
+    });
 }
 
 
+
+
+/************************************
+
+Idea1: News bot: ask for news.. bot responds with what type of news.. returns google search link.
+Idea2: 
+
+************************************/
 
 
 /************************************
