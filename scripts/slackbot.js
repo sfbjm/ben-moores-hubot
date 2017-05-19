@@ -18,34 +18,55 @@
 // <github username of the original script author>
 //
 
+//Version 1: Case statement with predefined cases and results.
+
+// https://news.google.com/headlines/section/topic/[INSERT_QUERY_HERE]?hl=en&ned=us
+
 // module.exports = function(robot) {
-//     robot.hear(/javascript/i, function(msg) {
-//      return msg.send("I love JavaScript!");
-//     });
-//     robot.hear(/Where are you?/, function(res) {
-//       return res.send("Right here, what's up?");
-//     });
-//     robot.respond(/What is your favorite food?/, function(res) {
-//       return res.send("I am a robot. I don't eat food!");
-//     });
+//   robot.respond(/Show me news about (.*)/, function(msg) {
+//     var news;
+//     news = msg.match[1];
+//     console.log(news);
+//     switch (news) {
+//       case "the world":
+//         return msg.reply("https://news.google.com/headlines/section/topic/WORLD?hl=en&ned=us");
+//         break;
+//       case "the US":
+//         return msg.reply("https://news.google.com/headlines/section/topic/NATION?hl=en&ned=us");
+//         break;
+//       case "business":
+//         return msg.reply("https://news.google.com/headlines/section/topic/BUSINESS?hl=en&ned=us");
+//         break;
+//       case "tech":
+//         return msg.reply("https://news.google.com/headlines/section/topic/TECHNOLOGY?hl=en&ned=us");
+//         break;
+//       default:
+//         return msg.reply("Hmm.. I don't know how to find news for " + news + ".");
+//     }
+//   });
 // }
 
 
+//Version 2: Passing variables as URL paramaters
+
 module.exports = function(robot) {
-    robot.respond(/Show me the news/, function(res) {
-      return res.send("https://news.google.com/search/section/q/trump/trump?hl=en&ned=us");
-    });
+  robot.respond(/Show me news about (.*)/, function(msg) {
+    var news;
+    news = msg.match[1];
+    console.log(news);
+    if (news === "") {
+      return msg.reply("Hmm.. I don't know how to find news for " + news + ".");
+    } else {
+      return msg.reply("https://news-ui-prod.sandbox.google.com/search/section/q/"+news+"/"+news+"?hl=en&ned=us");
+    }
+  });
 }
 
+  
 
 
 
-/************************************
 
-Idea1: News bot: ask for news.. bot responds with what type of news.. returns google search link.
-Idea2: 
-
-************************************/
 
 
 /************************************
