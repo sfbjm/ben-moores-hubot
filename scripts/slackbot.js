@@ -18,6 +18,21 @@
 // <github username of the original script author>
 //
 
+
+/***********************/
+/* Bot 1 - Congrat Bot */
+/***********************/
+
+module.exports = function(robot) {
+    
+    robot.hear(/well done||congrats||great job||awesome||nailed it||great stuff/i, function(msg){
+      var gifs = ['http://pa1.narvii.com/6261/5a310e7c832762a318e7b03794ce540a41cc6ae2_hq.gif', 'http://www.reactiongifs.com/r/drj1NmK.gif', 'http://i58.photobucket.com/albums/g246/sey115/Photobucket%20Desktop%20-%20Sage%20Youngs%20MacBook/Funny%20and%20Random/andyreaction_zpsecc4e2b7.gif', 'http://www.reactiongifs.com/r/2013/06/Colbert-High-Five.gif', 'http://www.reactiongifs.com/r/jcwd.gif'];
+      var gifs = gifs[Math.floor(Math.random()*gifs.length)];
+        msg.send(gifs);
+  });
+}
+
+
 //Version 1: Case statement with predefined cases and results.
 
 // https://news.google.com/headlines/section/topic/[INSERT_QUERY_HERE]?hl=en&ned=us
@@ -67,14 +82,7 @@
 // }
 
 
-module.exports = function(robot) {
-    
-    robot.hear(/well done||congrats||great job||awesome||nailed it||great stuff/i, function(msg){
-      var gifs = ['http://pa1.narvii.com/6261/5a310e7c832762a318e7b03794ce540a41cc6ae2_hq.gif', 'http://www.reactiongifs.com/r/drj1NmK.gif', 'http://i58.photobucket.com/albums/g246/sey115/Photobucket%20Desktop%20-%20Sage%20Youngs%20MacBook/Funny%20and%20Random/andyreaction_zpsecc4e2b7.gif', 'http://www.reactiongifs.com/r/2013/06/Colbert-High-Five.gif', 'http://www.reactiongifs.com/r/jcwd.gif'];
-      var gifs = gifs[Math.floor(Math.random()*gifs.length)];
-        msg.send(gifs);
-  });
-}
+
   
 
 
